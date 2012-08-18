@@ -6,54 +6,94 @@
 
 (import (java.io File))
 
-(defn split-line-to-vec [line sep]
-  (let [new-line (str/replace line #";" "; ")]
-    (into [] (.split new-line sep))))
+;;;;;;;;;;;;
+;;; Pre and Post checker functions
 
-(defn is-file [file-name]
+(defn file? [file-name]
   (. (io/file file-name) isFile))
 
-(defn csv-file-to-vec [file-name]
-  (with-open [rdr (io/reader file-name)]
-    (reduce conj [] (line-seq rdr))))
+(defn sq-of-sq? [s]
+  (and (sequential? s) (= #{true} (set (map #(sequential? %) s)))))
 
-(defn csv-file-to-vec-of-vec [file-name &
-                        {:keys [separator quote]
-                         :or {separator \; quote \"}}]
-  {:pre [(is-file file-name)]}
-	(with-open [in-file (io/reader file-name)]
-	  (doall
-	    (csv/read-csv in-file :separator separator :quote quote))))
+(defn vec-of-vec? [s]
+  (and (vector? s) (= #{true} (set (map #(vector? %) s)))))
 
-(defn vec-to-csv-file [file-name vec]
-	(with-open [out-file (io/writer file-name)]
-	  (csv/write-csv out-file vec)))
+(defn sq-of-map? [s]
+  (and (sequential? s) (= #{true} (set (map #(map? %) s)))))
 
-(defn apply-struct [the-struct ls]
-  (try
-    (apply-struct-raw the-struct ls)
-    (catch java.lang.IllegalArgumentException ex
-      (if (= (.getMessage ex)
-             "Too many arguments to struct constructor")
-        (apply-struct-raw the-struct (pop ls))))))
+;;;;;;;;;;;;
+(defn csv-file-to-vec-vec
+  [file-name & {:keys [separator quote]
+                :or {separator \; quote \"}}]
+  
+  {:pre [(file? file-name)]
+   :post [(vec-of-vec? %)]}
+  
+  (into [] (with-open [in-file (io/reader file-name)]
+     (doall
+      (csv/read-csv in-file :separator separator :quote quote)))))
 
-(defn apply-struct-raw [the-struct ls]
-  (apply struct the-struct ls))
+(defn sq-sq-to-csv-file 
+  [file-name sq &
+   {:keys [separator quote] :or {separator \; quote \"}}]
+  
+  {:pre [(sq-of-sq? sq)]
+   :post [(file? file-name)]}
+    
+  (with-open [out-file (io/writer file-name)]
+    (csv/write-csv out-file sq :separator separator :quote quote)))
 
-(defn to-hash-arr [seq-vec]
-  (let [header (first seq-vec)
+(defn sq-sq-to-sq-map [sq]
+  {:pre [(sequential? sq)]
+   :post [(sq-of-map? %)]}
+  
+  (let [header (first sq)
         keyword-list (map #(keyword (str/replace % #" " "")) header)
-        row-struct  (apply create-struct keyword-list)
-        csv-list (rest seq-vec)
+        csv-list (filter #(not= % [""]) (rest sq))
         row (first csv-list)]
-    (map #(apply-struct row-struct % ) csv-list)))
+    (mapv #(zipmap keyword-list %) csv-list)))
 
-(defn csv-file-to-hash [csv-file-name]
-  (to-hash-arr
-   (csv-file-to-vec-of-vec csv-file-name)))
+(defn sq-map-to-sq-sq [sm]
+  {:pre [(sq-of-map? sm)]
+   :post [(sq-of-sq? %)]}
+  
+  (let [header (map name (keys (first sm)))
+        values (seq (map #(vals %) sm))]
+    (conj values header)))
+
+;;;;;;;;;;;;;;;
+;; top functions
+
+(defn csv2vec [file-name]
+  (csv-file-to-vec-vec file-name))
+
+(defn csv2map [file-name]
+  (sq-sq-to-sq-map
+   (csv-file-to-vec-vec file-name)))
+
+(defn sq2csv [file-name sq]
+  (sq-sq-to-csv-file file-name sq))
+
+(defn map2csv [file-name sm]
+  (vec-to-csv-file file-name
+                   (sq-map-to-sq-sq sm)))
+
+(comment
+  ;; TODO
+  ;;;;;;;;;;
+  ;; map2xml
+  ;; map2html
+  ;; csv2xml
+  ;; csv2html
+  ;; map2xls
+  ;; get-row
+  ;; 
+  ;; Tests!!!
+  )
 
 (defn -main [& args]
   (let [csv-file (first args)]
     (if (is-file csv-file)
-      (csv-file-to-hash csv-file)
+      (csv2map csv-file)
       (println (str "Argument Error: " csv-file " Is not a file")))))
+
