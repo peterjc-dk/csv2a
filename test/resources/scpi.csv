@@ -1,0 +1,250 @@
+SubSystem;Command;Min;SCPI Compl.;Nice to Have ;Rovsing;Agilent Only;Purpose
+ABORt;ABORt[:TRANsient];x;;;;;Aborts the transient trigger
+ABORt;ABORt:ACQuire;;;x;;;Aborts the acquire trigger
+ABORt;ABORt:DLOG;;;x;;;Aborts the dlog trigger
+CALibrate;CALibrate:CURRent[:DATA];x;;;;;enters a calibration value that you obtain by reading an external meter
+CALibrate;CALibrate:CURRent:LEVel;x;;;;;selects the minimum or maximum current calibration points
+CALibrate;CALibrate:CURRent:PROTection;x;;;;;calibrates the over-current protection
+CALibrate;CALibrate:DATE;x;;;;;stores the date that the power module was last calibrated
+CALibrate;CALibrate:DATE?;x;;;;;
+CALibrate;CALibrate:PASSword ;x;;;;;lets you change the calibration password
+CALibrate;CALibrate:SAVE;x;;;;;saves calibration constants in non-volatile memory after the calibration procedure has been completed
+CALibrate;CALibrate:STATe;x;;;;;enables or disables calibration mode
+CALibrate;CALibrate:STATe?;x;;;;;
+CALibrate;CALibrate:VOLTage:LEVel;x;;;;;selects the minimum or maximum voltage calibration points
+CALibrate;CALibrate:VOLTage[:DATA];x;;;;;enters a calibration value that you obtain by reading an external meter
+CALibrate;CALibrate:VOLTage:PROTection;x;;;;;calibrates the over-voltage protection
+DISPlay;DISPlay:ENABle;;;;;x;turns the front panel display on or off
+DISPlay;DISPlay:ENABle?;;;;;x;
+DISPlay;DISPlay[:WINDow]:TEXT;;;;;x;sends a character string to the display when the DISPlay:VIEW is set to TEXT
+DISPlay;DISPlay[:WINDow]:TEXT?;;;;;x;
+DISPlay;DISPlay[:WINDow]:VIEW;;;;;x;selects the information to be displayed on the front panel
+DISPlay;DISPlay[:WINDow]:VIEW?;;;;;x;
+FETCh;FETCh[:SCALar]:CURRent[:DC]?;x;;;;;Fetches the current part of the latest measurement
+FETCh;FETCh[:SCALar]:VOLTage[:DC]?;x;;;;;Fetches the voltage part of the latest measurement
+FETCh;FETCh:DLOG?;;;x;;;Fetches the latest measurement results from the dlog
+FORMat;FORMat:BORDer ;;;;;x;specifies how binary data is transferred (normal or swapped)
+FORMat;FORMat:BORDer?;;;;;x;
+FORMat;FORMat[:DATA];x;;;;;Sets if parameter data is ASCII or DATA
+FORMat;FORMat[:DATA]?;x;;;;;
+IEEE 488.2;*CLS;x;x;;;;Clear command
+IEEE 488.2;*ESE;;x;;;;Sets Status Event Status Enable register bits
+IEEE 488.2;*ESE?;;x;;;;
+IEEE 488.2;*ESR?;;x;;;;Returns the value of the Event register of the Standard Event Status Group
+IEEE 488.2;*IDN?;x;x;;;;Returns identification string
+IEEE 488.2;*OPC;;x;;;;Sets the OPC bit
+IEEE 488.2;*OPC?;;x;;;;
+IEEE 488.2;*OPT?;;;;;x;requests the mainframe to identify any installed options
+IEEE 488.2;*RCL;;;;;x;restores the instrument to a state that was previously stored in memory
+IEEE 488.2;*RDT?;;;;;x;returns a description of all the output modules (channels) installed in a mainframe
+IEEE 488.2;*RST;x;x;;;;Resets the PM to factory settings
+IEEE 488.2;*SAV;;;;;x;stores the present state of the instrument 
+IEEE 488.2;*SRE;;x;;;;Sets the value of the Service Request Enable register
+IEEE 488.2;*SRE?;;x;;;;
+IEEE 488.2;*STB?;;x;;;;Returns the value of the Status Byte register
+IEEE 488.2;*TRG;;;;;x;generates a trigger when the trigger subsystem has BUS selected as its source
+IEEE 488.2;*TST?;x;x;;;;Causes PM to do a self test
+IEEE 488.2;*WAI;;x;;;;Instructs the instrument not to process any further commands until all pending operations are completed
+INITiate;INITiate[:IMMediate]:ACQuire;;;x;;;Enables the measurement trigger system
+INITiate;INITiate[:IMMediate]:DLOG;;;x;;;Enables the data logger trigger system
+INITiate;INITiate[:IMMediate][:TRANsient];x;;;;;Enables the output trigger system
+INITiate;INITiate:CONTinuous[:TRANsient];;;;;x;Continuously initiates the transient system
+INITiate;INITiate:CONTinuous[:TRANsient]?;;;;;x;
+MEASure;MEASure[:SCALar]:CURRent[:DC]?;x;;;;;This query initiates and triggers a measurement and returns A
+MEASure;MEASure[:SCALar]:VOLTage[:DC]?;x;;;;;This query initiates and triggers a measurement and returns V
+MEMory;MEMory:COPY:TABLe;;;;;x;copies the table that was selected with MEMory:TABLe:SELect to non-volatile memory
+MEMory;MEMory:DELete[:NAME];;;x;;;Deletes the specified table
+MEMory;MEMory:DELete:ALL;x;;;;;Deletes all tables
+MEMory;MEMory:TABLe:CATalog?;x;;;;;Returns the names of all user-defined tables
+MEMory;MEMory:TABLe:CURRent[:MAGNitude];x;;;;;Programs a list of current points for a new table
+MEMory;MEMory:TABLe:CURRent[:MAGNitude]:POINts?;x;;;;;Returns the number of current points in the active table
+MEMory;MEMory:TABLe:SELect ;x;;;;;Creates a new or selects an existing table
+MEMory;MEMory:TABLe:SELect?;x;;;;;
+MEMory;MEMory:TABLe:VOLTage[:MAGNitude];x;;;;;Programs a list of voltage points for a new table
+MEMory;MEMory:TABLe:VOLTage[:MAGNitude]:POINts?;x;;;;;Returns the number of voltage points in the active table
+OUTPut;OUTPut[:STATe];x;x;;;;Enables or disables the output
+OUTPut;OUTPut[:STATe]?;x;x;;;;
+OUTPut;OUTPut[:STATe]:COUPle[:STATe];;;;;x;enables or disables output coupling or synchronization between multiple output channels
+OUTPut;OUTPut[:STATe]:COUPle[:STATe]?;;;;;x;
+OUTPut;OUTPut[:STATe]:COUPle:CHANnel;;;;;x;specifies which output channels in the mainframe are controlled by the output synchronization function
+OUTPut;OUTPut[:STATe]:COUPle:CHANnel?;;;;;x;
+OUTPut;OUTPut:INHibit:MODE;;;x;;;Selects the mode of operation of the Inhibit input
+OUTPut;OUTPut:INHibit:MODE?;;;x;;;
+OUTPut;OUTPut:PON:STATe;;;;;x;determines if the power-on state is set to the *RST (RST) state or the instrument state stored in memory location 0 (RCL0).
+OUTPut;OUTPut:PON:STATe?;;;;;x;
+OUTPut;OUTPut:PROTection:CLEar;x;;;;;Clears the latched protection status that disables the output when an over-voltage, over-current, over-temperature, over-switching, inhibit signal, power-fail condition, or a power-limit condition is detected
+OUTPut;OUTPut:PROTection:COUPle;;;;;x;enables/disables output coupling for protection faults
+OUTPut;OUTPut:PROTection:COUPle?;;;;;x;
+SENSe;SENSe:DLOG:CLOCk;;;x;;;Specifies the trigger source for capturing measurements into the data log
+SENSe;SENSe:DLOG:CLOCk?;;;x;;;
+SENSe;SENSe:DLOG:TINTerval;;;x;;;Specifies the time interval for capturing measurements into the datalog buffer
+SENSe;SENSe:DLOG:TINTerval?;;;x;;;
+SOURce;[SOURce:]CURRent[:LEVel][:IMMediate][:AMPLitude];x;x;;;;Sets current in fixed mode
+SOURce;[SOURce:]CURRent[:LEVel][:IMMediate][:AMPLitude]? ;x;x;;;;
+SOURce;[SOURce:]CURRent:DTABle:SASimulator[:IMMediate]?;;;;;x;returns the DAC table that was calculated based on the SAS parameter settings
+SOURce;[SOURce:]CURRent:DTABle:SASimulator:LIST?;;;;;x;returns the DAC table that was calculated based on the SAS parameter settings of the specified list step
+SOURce;[SOURce:]CURRent:DTABle:TABLe[:IMMediate]?;;;;;x;returns the DAC table that was calculated based on the current values in the specified table
+SOURce;[SOURce:]CURRent:MODE;x;;;;;Sets the PM mode
+SOURce;[SOURce:]CURRent:MODE?;x;;;;;
+SOURce;[SOURce:]CURRent:MODE:DTABle;;;;;x;specifies the size of the data table used in SAS and Table modes
+SOURce;[SOURce:]CURRent:MODE:DTABle?;;;;;x;
+SOURce;[SOURce:]CURRent:MODE:PROGramming;;;;;x;When multiple output channels are connected for auto-parallel operation, this command specifies the source of the control signal used for current programming
+SOURce;[SOURce:]CURRent:MODE:PROGramming?;;;;;x;
+SOURce;[SOURce:]CURRent:PROTection[:LEVel];x;;;;;Sets current protection level
+SOURce;[SOURce:]CURRent:PROTection[:LEVel]? ;x;;;;;
+SOURce;[SOURce:]CURRent:SAS:IMP;;;;;x;sets the current at the peak power point of the curve when operating in SAS mode
+SOURce;[SOURce:]CURRent:SAS:IMP?;;;;;x;
+SOURce;[SOURce:]CURRent:SAS:ISC;;;;;x;sets the short-circuit current when operating in SAS mode
+SOURce;[SOURce:]CURRent:SAS:ISC?;;;;;x;
+SOURce;[SOURce:]CURRent:SAS:MODE;;;;;x;selects the source of the curve parameters when operating in SAS mode
+SOURce;[SOURce:]CURRent:SAS:MODE?;;;;;x;
+SOURce;[SOURce:]CURRent:SLIMit:HIGH;;;;;x;sets the high limit for programming the output current
+SOURce;[SOURce:]CURRent:SLIMit:HIGH?;;;;;x;
+SOURce;[SOURce:]CURRent:TABLe:NAME;x;;;;;Sets the table to use
+SOURce;[SOURce:]CURRent:TABLe:NAME? ;x;;;;;
+SOURce;[SOURce:]CURRent:TABLe:OFFSet;;;;;x;adds a current offset when operating in Table mode
+SOURce;[SOURce:]CURRent:TABLe:OFFSet?;;;;;x;
+SOURce;[SOURce:]DIGital:INPut:DATA?;x;;;;;Reads the state of the digital control port
+SOURce;[SOURce:]DIGital:OUTPut:DATA;;;x;;;Sets the output data on the digital control port when that port is configured for Digital I/O operation
+SOURce;[SOURce:]DIGital:OUTPut:DATA? ;;;x;;;
+SOURce;[SOURce:]DIGital:PIN<1-7>:FUNCtion;x;;;;;Sets the functions of the digital port pins
+SOURce;[SOURce:]DIGital:PIN<1-7>:FUNCtion?;x;;;;;
+SOURce;[SOURce:]DIGital:PIN<1-7>:POLarity;;;x;;;Sets the polarity of the digital port pins
+SOURce;[SOURce:]DIGital:PIN<1-7>:POLarity?;;;x;;;
+SOURce;[SOURce:]LIST:COUNt ;;;;;x;sets the number of times that the list is executed before it is completed
+SOURce;[SOURce:]LIST:COUNt?;;;;;x;
+SOURce;[SOURce:]LIST:DWELl ;x;;;;;Programs the dwell list
+SOURce;[SOURce:]LIST:DWELl? ;x;;;;;
+SOURce;[SOURce:]LIST:DWELl:POINts?;;;;;x;returns the number of points (steps) in the dwell list, not the point values
+SOURce;[SOURce:]LIST:SAS:IMP[:LEVel];;;;;x;specifies the current at the maximum power point for each list step
+SOURce;[SOURce:]LIST:SAS:IMP[:LEVel]?;;;;;x;
+SOURce;[SOURce:]LIST:SAS:IMP:POINts?;;;;;x;returns the number of points (steps) in the Imp list, not the point values
+SOURce;[SOURce:]LIST:SAS:ISC[:LEVel];;;;;x;specifies the short-circuit current for each list step
+SOURce;[SOURce:]LIST:SAS:ISC[:LEVel]?;;;;;x;
+SOURce;[SOURce:]LIST:SAS:ISC:POINts?;;;;;x;returns the number of points (steps) in the Isc list, not the point values
+SOURce;[SOURce:]LIST:SAS:VMP[:LEVel];;;;;x;specifies the voltage at the maximum power point for each list step
+SOURce;[SOURce:]LIST:SAS:VMP[:LEVel]?;;;;;x;
+SOURce;[SOURce:]LIST:SAS:VMP:POINts?;;;;;x;returns the number of points (steps) in the Vmp list, not the point values
+SOURce;[SOURce:]LIST:SAS:VOC[:LEVel];;;;;x;specifies the open-circuit voltage for each list step
+SOURce;[SOURce:]LIST:SAS:VOC[:LEVel]?;;;;;x;
+SOURce;[SOURce:]LIST:SAS:VOC:POINts?;;;;;x;returns the number of points (steps) in the Voc list, not the point values
+SOURce;[SOURce:]LIST:TABLe ;x;;;x;;Programs the list of table ids to traverse
+SOURce;[SOURce:]LIST:TABLe? ;x;;;x;;
+SOURce;[SOURce:]LIST:STEP ;x;;;;;Sets if the list should be traversed automatically or on trigger.
+SOURce;[SOURce:]LIST:STEP?;x;;;;;
+SOURce;[SOURce:]LIST:STEP:ACTive?;;;x;;;Returns the current step number
+SOURce;[SOURce:]LIST:TERMinate:LAST;;;x;;;Sets what PM should do after last step is completed
+SOURce;[SOURce:]LIST:TERMinate:LAST? ;;;x;;;
+SOURce;[SOURce:]VOLTage[:LEVel][:IMMediate][:AMPLitude];x;x;;;;Sets voltage in fixed mode
+SOURce;[SOURce:]VOLTage[:LEVel][:IMMediate][:AMPLitude]? ;x;x;;;;
+SOURce;[SOURce:]VOLTage:DTABle:SASimulator[:IMMediate]?;;;;;x;returns the DAC table that was calculated based on the SAS parameter settings
+SOURce;[SOURce:]VOLTage:DTABle:SASimulator:LIST?;;;;;x;returns the DAC table that was calculated based on the SAS parameter settings of the specified list step
+SOURce;[SOURce:]VOLTage:DTABle:TABLe[:IMMediate]?;;;;;x;returns the DAC table that was calculated based on the voltage values in the specified table
+SOURce;[SOURce:]VOLTage:PROTection[:LEVel] ;x;;;;;Sets voltage protection level
+SOURce;[SOURce:]VOLTage:PROTection[:LEVel]? ;x;;;;;
+SOURce;[SOURce:]VOLTage:SAS:VMP;;;;;x;sets the voltage at the peak power point of the curve when operating in SAS mode
+SOURce;[SOURce:]VOLTage:SAS:VMP?;;;;;x;
+SOURce;[SOURce:]VOLTage:SAS:VOC;;;;;x;sets the open-circuit voltage when operating in SAS mode
+SOURce;[SOURce:]VOLTage:SAS:VOC?;;;;;x;
+SOURce;[SOURce:]VOLTage:SLIMit:HIGH;;;;;x;sets the high limit for programming the output voltage
+SOURce;[SOURce:]VOLTage:SLIMit:HIGH?;;;;;x;
+SOURce;[SOURce:]VOLTage:TABLe:OFFSet;;;;;x;adds a voltage offset when operating in Table mode
+SOURce;[SOURce:]VOLTage:TABLe:OFFSet?;;;;;x;
+STATus;STATus:OPERation[:EVENt]?;;x;;;;Returns the value of the Operation Status Event register
+STATus;STATus:OPERation:CONDition?;;x;;;;Returns the value of the Operation Status Condition register
+STATus;STATus:OPERation:ENABle;;x;;;;Set the value of the Operation Status Enable register
+STATus;STATus:OPERation:ENABle?;;x;;;;
+STATus;STATus:OPERation:NTRansition;;;;;x;sets and reads the value of the Operation NTR (Negative-Transition) register
+STATus;STATus:OPERation:NTRansition?;;;;;x;
+STATus;STATus:OPERation:PTRansition;;;;;x;sets and reads the value of the Operation PTR (Positive-Transition) register
+STATus;STATus:OPERation:PTRansition?;;;;;x;
+STATus;STATus:PRESet;;x;;;;Sets all defined bits in the status system's PTR registers and clears all bits in the NTR and Enable registers
+STATus;STATus:QUEStionable[:EVENt]?;;x;;;;Returns the value of the Questionable Status Event register
+STATus;STATus:QUEStionable:CONDition?;;x;;;;Returns the value of the Questionable Status Condition register
+STATus;STATus:QUEStionable:ENABle;;x;;;;Set the value of the Questionable Status Enable register
+STATus;STATus:QUEStionable:ENABle?;;x;;;;
+STATus;STATus:QUEStionable:NTRansition;;;;;x;sets and reads the value of the Questionable NTR (Negative-Transition) register
+STATus;STATus:QUEStionable:NTRansition?;;;;;x;
+STATus;STATus:QUEStionable:PTRansition;;;;;x;sets and reads the value of the Questionable PTR (Positive-Transition) register
+STATus;STATus:QUEStionable:PTRansition?;;;;;x;
+STATus;SYSTem:CHANnel[:COUNt]?;;;;;x;returns the number of output channels in a mainframe
+STATus;SYSTem:CHANnel:MODel?;;;;;x;returns the model number of the selected output channel
+STATus;SYSTem:CHANnel:OPTion?;;;;;x;returns a list of options installed in each channel given in the channel list
+STATus;SYSTem:CHANnel:SERial?;;;;;x;returns the serial number of the selected output channel
+STATus;SYSTem:COMMunicate:RLSTate;;;;;x;configures the remote/local state of the instrument according to the following settings
+STATus;SYSTem:COMMunicate:RLSTate?;;;;;x;
+STATus;SYSTem:ERRor[:NEXT]?;x;x;;;;Returns the next error number and its corresponding message string from the error queue
+STATus;SYSTem:GROup:CATalog?;;;;;x;returns information about channels that are grouped
+STATus;SYSTem:GROup:DEFine;;;;;x;defines a list of output channels as a paralleled group
+STATus;SYSTem:GROup:DELete;;;;;x;removes the indicated channel from a group
+STATus;SYSTem:GROup:DELete:ALL;;;;;x;deletes all groups on a mainframe
+STATus;SYSTem:GROup:PARallel;;;;;x;tells the instrument how the output modules are physically connected in parallel
+STATus;SYSTem:GROup:PARallel?;;;;;x;
+STATus;SYSTem:MMEMory:INITialize;;;;;x;restores the mass memory file system after it has been destroyed using the SYSTem:MMEMory:SANitize command
+STATus;SYSTem:MMEMory:SANitize;;;;;x;implements the clearing and sanitizing standard DoD 5220.22-M for flash memory devices
+STATus;SYSTem:PASSword:FPANel:RESet;;;;;x;resets the front panel lockout password to the factory-shipped setting, which is zero (0).
+SYSTem;SYSTem:VERSion?;;x;x;;;Returns the version of the SCPI (Standard Commands for Programmable Instruments) standard with which the instrument is in compliance
+SYSTem;SYSTem:REBoot;x;;;;;Causes the instrument to reboot to its power-on state
+TRIGger;TRIGger[:TRANsient][:IMMediate];x;;;;;Generates an immediate output trigger
+TRIGger;TRIGger[:TRANsient]:SOURce;x;;;;;Selects the trigger source
+TRIGger;TRIGger[:TRANsient]:SOURce?;x;;;;;
+TRIGger;TRIGger:ACQuire[:IMMediate];;;x;;;Generates an immediate measurement trigger
+TRIGger;TRIGger:ACQuire:DELay;;;x;;;Specifies a time delay for the acquisition trigger after the trigger is received
+TRIGger;TRIGger:ACQuire:DELay?;;;x;;;
+TRIGger;TRIGger:ACQuire:SOURce;;;x;;;Selects the trigger source for the measurement subsystem
+TRIGger;TRIGger:ACQuire:SOURce?;;;x;;;
+TRIGger;TRIGger:DLOG[:IMMediate];;;x;;;Generates an immediate data log trigger
+TRIGger;TRIGger:DLOG:SOURce;;;x;;;Selects the trigger source for the data logger
+TRIGger;TRIGger:DLOG:SOURce?;;;x;;;
+TRIGger;TRIGger:PIN<3-7>:SOURce;x;;;;;Selects the trigger source for the specified digital I/O pin
+TRIGger;TRIGger:PIN<3-7>:SOURce?;x;;;;;
+;;;;;;;
+Legend;;;;;;;
+;Expands to multiple commands;;;;;;
+;;;;;;;
+;;;;;;;
+CHANGE LOG;;;;;;;
+updated;02-11-2011;;;;;;
+from;;;;;;;
+INITiate;INITiate[:IMMediate][:TRANsient];;;x;;;Enables the output trigger system
+INITiate;INITiate:CONTinuous[:TRANsient];x;;;;;Continuously initiates the transient system
+INITiate;INITiate:CONTinuous[:TRANsient]?;x;;;;;
+to;;;;;;;
+INITiate;INITiate[:IMMediate][:TRANsient];x;;;;;Enables the output trigger system
+INITiate;INITiate:CONTinuous[:TRANsient];;;;;x;Continuously initiates the transient system
+INITiate;INITiate:CONTinuous[:TRANsient]?;;;;;x;
+;;;;;;;
+updated;04-11-2011;;;;;;
+from;;;;;;;
+CALibrate;CALibrate:CURRent[:DATA];;;;;x;enters a calibration value that you obtain by reading an external meter
+CALibrate;CALibrate:CURRent:LEVel;;;;;x;selects the minimum or maximum current calibration points
+CALibrate;CALibrate:CURRent:PROTection;;;;;x;calibrates the over-current protection
+CALibrate;CALibrate:DATE;;;;;x;stores the date that the power module was last calibrated
+CALibrate;CALibrate:DATE?;;;;;x;
+CALibrate;CALibrate:PASSword ;;;;;x;lets you change the calibration password
+CALibrate;CALibrate:SAVE;;;;;x;saves calibration constants in non-volatile memory after the calibration procedure has been completed
+CALibrate;CALibrate:STATe;;;;;x;enables or disables calibration mode
+CALibrate;CALibrate:STATe?;;;;;x;
+CALibrate;CALibrate:VOLTage:LEVel;;;;;x;selects the minimum or maximum voltage calibration points
+CALibrate;CALibrate:VOLTage[:DATA];;;;;x;enters a calibration value that you obtain by reading an external meter
+CALibrate;CALibrate:VOLTage:PROTection;;;;;x;calibrates the over-voltage protection
+to;;;;;;;
+CALibrate;CALibrate:CURRent[:DATA];x;;;;;enters a calibration value that you obtain by reading an external meter
+CALibrate;CALibrate:CURRent:LEVel;x;;;;;selects the minimum or maximum current calibration points
+CALibrate;CALibrate:CURRent:PROTection;x;;;;;calibrates the over-current protection
+CALibrate;CALibrate:DATE;x;;;;;stores the date that the power module was last calibrated
+CALibrate;CALibrate:DATE?;x;;;;;
+CALibrate;CALibrate:PASSword ;x;;;;;lets you change the calibration password
+CALibrate;CALibrate:SAVE;x;;;;;saves calibration constants in non-volatile memory after the calibration procedure has been completed
+CALibrate;CALibrate:STATe;x;;;;;enables or disables calibration mode
+CALibrate;CALibrate:STATe?;x;;;;;
+CALibrate;CALibrate:VOLTage:LEVel;x;;;;;selects the minimum or maximum voltage calibration points
+CALibrate;CALibrate:VOLTage[:DATA];x;;;;;enters a calibration value that you obtain by reading an external meter
+CALibrate;CALibrate:VOLTage:PROTection;x;;;;;calibrates the over-voltage protection
+;;;;;;;
+;;;;;;;
+updated;05-01-2012;;;;;;
+from;;;;;;;
+SOURce;[SOURce:]DIGItal:INPut:DATA?;x;;;;;Reads the state of the digital control port
+to;;;;;;;
+SOURce;[SOURce:]DIGital:INPut:DATA?;x;;;;;Reads the state of the digital control port

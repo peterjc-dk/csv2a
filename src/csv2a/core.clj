@@ -44,12 +44,12 @@
     (csv/write-csv out-file sq :separator separator :quote quote)))
 
 (defn sq-sq-to-sq-map [sq]
-  {:pre [(sequential? sq)]
+  {:pre [(and (< 1 (count sq)) (sq-of-sq? sq))]
    :post [(sq-of-map? %)]}
   
   (let [header (first sq)
         keyword-list (map #(keyword (str/replace % #" " "")) header)
-        csv-list (filter #(not= % [""]) (rest sq))
+        csv-list (filter #(not (contains? #{[""] []} (into [] %))) (rest sq))
         row (first csv-list)]
     (mapv #(zipmap keyword-list %) csv-list)))
 
@@ -75,7 +75,7 @@
   (sq-sq-to-csv-file file-name sq))
 
 (defn map2csv [file-name sm]
-  (vec-to-csv-file file-name
+  (sq-sq-to-csv-file file-name
                    (sq-map-to-sq-sq sm)))
 
 (comment
@@ -93,7 +93,7 @@
 
 (defn -main [& args]
   (let [csv-file (first args)]
-    (if (is-file csv-file)
+    (if (file? csv-file)
       (csv2map csv-file)
       (println (str "Argument Error: " csv-file " Is not a file")))))
 
